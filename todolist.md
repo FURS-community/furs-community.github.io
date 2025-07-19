@@ -1,0 +1,13 @@
+# 思来想去还是在项目里建个todolist吧
+
+## 管理员感觉不合适的话移除就好了
+
+# 已经完成
+
+- 建立join.html（fox03）
+- 修改index.html，为index.html增加指向join.html的链接（fox03）
+- 在join.html中插入furs宣传片（fox03）
+- 为现存页面添加logo（fox03）
+
+# 未完成
+- 为join.html添加加群链接（fox03） p.s. 需要群主或管理员去腾讯生成相应链接
