@@ -8,6 +8,7 @@
 - 修改index.html，为index.html增加指向join.html的链接（fox03）
 - 在join.html中插入furs宣传片（fox03）
 - 为现存页面添加logo（fox03）
+- 新增commingsoon.html，将部分未完成页面指向commingsoon页面（Fox03）
 
 # 未完成
 - 为join.html添加加群链接（fox03） p.s. 需要群主或管理员去腾讯生成相应链接
