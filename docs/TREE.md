@@ -2,7 +2,7 @@
 
 ```
 furs-community.github.io/
-├── index.html                  # 主页
+├── main.html                  # 主页
 ├── pages/                      # 子页面目录
 │   ├── news.html               # 新闻页
 │   ├── about.html              # 关于我们
