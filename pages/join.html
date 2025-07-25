@@ -6,15 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 加入我们 - FURS 兽研会 </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style/main.css">
-    <link rel="icon" href="../logo.ico">
-    <style>
-        #bili-radio {
-            width: 50%;
-            height: 50%;
-        }
-    </style>
-
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="icon" href="../assets/logo.ico">
 </head>
 
 <body>
@@ -28,7 +21,7 @@
         <div class="logo">
             <a href="../index.html" class="logo-container">
                 <span class="logo-text">FURS 兽研会</span>
-                <img src="../logo.ico" alt="FURS 兽研会" class="logo-img">
+                <img src="../assets/logo.ico" alt="FURS 兽研会" class="logo-img">
             </a>
         </div>
         <div class="left"></div>
@@ -43,13 +36,12 @@
     </nav>
     <section class="hero">
         <h1 class="FirstTitle"> 欢迎加入FURS！</h1>
-        <iframe id="bili-radio"
-            src="https://player.bilibili.com/player.html?isOutside=true&aid=112842145532677&bvid=BV14feDeNEBb&cid=500001626223483&p=1"
-            scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-        </iframe>
-
+        <video controls width="800" height="450" poster="../assets/FURS.jpg">
+            <source src="../assets/FURS_VIDEO.mp4" type="video/mp4">
+            您的浏览器不支持视频播放
+        </video>
         <div class="hero-buttons">
-            <a href="#qq群 " class="cta-button">加入群聊</a>
+            <a href="#qq" class="cta-button">加入群聊</a>
         </div>
     </section>
     <footer class="CopyRight">
@@ -88,11 +80,7 @@
         </div>
         <p class="CopyRightInfor">&copy; 2025 FURS兽研会. 保留所有权利. | 兽迷文化，创意无限</p>
     </footer>
-    <script src="../src/index.js"></script>
-    <script>
-        document.getElementById("bili-radio").style.height = document.getElementById("bili-radio").scrollWidth * 0.76 + "px";
-    </script>
-
+    <script src="../scripts/index.js"></script>
 </body>
 
 </html>
