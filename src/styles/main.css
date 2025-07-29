@@ -29,6 +29,11 @@ body {
     align-items: center;
     animation: fadeIn 0.6s forwards;
 }
+    a {
+    color: black; /* 设置为你想要的颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    }
+
 
 @font-face {
     font-family: 'titleFont';
@@ -301,6 +306,7 @@ body {
     justify-content: center;
     color: white;
     font-size: 2.5rem;
+    object-fit: cover;
 }
 
 .event-content {
