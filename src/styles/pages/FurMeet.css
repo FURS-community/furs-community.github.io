@@ -212,7 +212,7 @@ body {
 }
 
 .content-block {
-    flex: 1 1 0;
+    /* flex: 1 1 0; */
     min-width: 0;
     min-height: 0;
     height: 100%;

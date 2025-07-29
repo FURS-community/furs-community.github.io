@@ -8,7 +8,8 @@
 2. 修改了index.html以适配FurMeetAPI.js
 3. 修改了main.css，使兽聚板块有更好的视觉效果
 4. 新建了FurMeet.html
-
+5. 修改了FurMeet.html，使其能显示6个兽聚卡片
+6. 使用Copilot对FurMeetAPI.js进行重写，生成了FurMeetAPI_new.js
 ## 25/7/27 更新：
 
 - 更新内容：
