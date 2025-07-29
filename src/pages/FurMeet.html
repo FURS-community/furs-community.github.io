@@ -212,23 +212,7 @@
     </footer>
     <script src="../scripts/main.js"></script>
     <script src="../scripts/FurMeetAPI_new.js"></script>
-    <script>
-    // 自动同步主图和背景图
-    function syncEventImage(mainId, bgId) {
-        var main = document.getElementById(mainId);
-        var bg = document.getElementById(bgId);
-        if (main && bg) {
-            // 初始同步
-            if (main.src) bg.src = main.src;
-            // 监听主图变化
-            main.addEventListener('load', function() {
-                bg.src = main.src;
-            });
-        }
-    }
-    syncEventImage('FurMeet1Cover', 'FurMeet1CoverBg');
-    syncEventImage('FurMeet2Cover', 'FurMeet2CoverBg');
-    </script>
+    
 </body>
 
 </html>

@@ -10,6 +10,7 @@
 4. 新建了FurMeet.html
 5. 修改了FurMeet.html，使其能显示6个兽聚卡片
 6. 使用Copilot对FurMeetAPI.js进行重写，生成了FurMeetAPI_new.js
+7. 将FurMeet中的syncEventImage函数移到FurMeetAPI_new.js中
 ## 25/7/27 更新：
 
 - 更新内容：

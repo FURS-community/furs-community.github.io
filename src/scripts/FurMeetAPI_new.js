@@ -69,6 +69,7 @@ async function fetchMeets() {
     for (let i = 0; i < displayCount; i++) {
         if (meets[i]) {
         populateMeetCard(meetContainers[i], meets[i]);
+        syncEventImage(`FurMeet${i+1}Cover`, `FurMeet${i+1}CoverBg`);
         }
     }
     
@@ -83,4 +84,16 @@ async function fetchMeets() {
 }
 
 // 初始化执行
+function syncEventImage(mainId, bgId) {
+        var main = document.getElementById(mainId);
+        var bg = document.getElementById(bgId);
+        if (main && bg) {
+            // 初始同步
+            if (main.src) bg.src = main.src;
+            // 监听主图变化
+            main.addEventListener('load', function() {
+                bg.src = main.src;
+            });
+        }
+    }
 fetchMeets();
