@@ -1,13 +1,13 @@
 # 更新内容
 
-
 ## 25/7/29更新：
 
 - 更新内容：
-  1.新建了了FurMeetAPI.js并进行简单编写
-  2.修改了index.html以适配FurMeetAPI.js
-  3.修改了main.css，使兽聚板块有更好的视觉效果
 
+1. 新建了了FurMeetAPI.js并进行简单编写
+2. 修改了index.html以适配FurMeetAPI.js
+3. 修改了main.css，使兽聚板块有更好的视觉效果
+4. 新建了FurMeet.html
 
 ## 25/7/27 更新：
 
