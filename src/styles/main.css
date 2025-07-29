@@ -323,6 +323,8 @@ body {
     color: #777;
     margin-bottom: 15px;
     font-size: 0.9rem;
+    height: 7rem;
+    overflow: auto;
 }
 
 .event-meta {
