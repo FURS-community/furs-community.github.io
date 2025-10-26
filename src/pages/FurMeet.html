@@ -1,207 +1,240 @@
 <!DOCTYPE html>
 <html lang="zh">
+    <head>
+        <!-- FURS 兽研会 | 线下兽聚 -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="查看 FURS 兽研会近期线下兽聚活动，了解全国各地的兽聚动态。" />
+        <title>线下兽聚 · FURS 兽研会</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="stylesheet" href="../styles/main.css" />
+        <link rel="stylesheet" href="../styles/pages/FurMeet.css" />
+        <link rel="icon" href="../../resource/assets_furs/logo.ico" />
+    </head>
+    <body class="meet-page">
+        <div class="nav-placeholder" aria-hidden="true"></div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 线下兽聚 - FURS 兽研会 </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/pages/FurMeet.css">
-    <link rel="icon" href="../../resource/assets_furs/logo.ico">
+        <header class="site-header">
+            <nav class="FursNav" aria-label="主导航" role="navigation">
+                <button
+                    class="hamburger"
+                    type="button"
+                    aria-label="展开主菜单"
+                    aria-controls="primary-navigation"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="logo">
+                    <a href="../../index.html" class="logo-container" aria-label="返回首页">
+                        <img src="../../resource/assets_furs/logo.ico" alt="FURS 兽研会 Logo" class="logo-img" />
+                        <span class="logo-text">FURS 兽研会</span>
+                    </a>
+                </div>
+                <div class="left" aria-hidden="true"></div>
+                <div id="primary-navigation" class="NavLinks">
+                    <a href="../../index.html" class="nav-link">首页</a>
+                    <a href="./FurMeet.html" class="nav-link active">线下兽聚</a>
+                    <a href="./news.html" class="nav-link">最新新闻</a>
+                    <a href="./about.html" class="nav-link">关于FURS</a>
+                    <a href="./comingsoon.html" class="nav-link">FURS作品</a>
+                </div>
+            </nav>
+        </header>
 
-</head>
+        <main class="main-container" id="main-content">
+            <header class="page-header" aria-labelledby="page-title">
+                <h1 id="page-title" class="page-title">线下兽聚</h1>
+                <p class="page-subtitle">查看最近全国各地举行的兽聚</p>
+            </header>
 
-<body class="meet-page">
-    <div class="nav-placeholder"></div>
-    <nav class="FursNav">
-        <button class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="logo">
-            <a href="../../index.html" class="logo-container">
-                <img src="../../resource/assets_furs/logo.ico" alt="FURS 兽研会" class="logo-img">
-                <span class="logo-text">FURS 兽研会</span>
-            </a>
-        </div>
-        <div class="left"></div>
-        <div class="NavLinks">
-            <a href="../../index.html" class="nav-link">首页</a>
-            <a href="./FurMeet.html" class="nav-link active">线下兽聚</a>
-            <a href="./news.html" class="nav-link">最新新闻</a>
-            <a href="./about.html" class="nav-link">关于FURS</a>
-            <a href="./comingsoon.html" class="nav-link">FURS作品</a>
-        </div>
-
-    </nav>
-
-    <div class="main-container">
-        <div class="page-header">
-            <h1 class="page-title">线下兽聚</h1>
-            <p class="page-subtitle">查看最近全国各地举行的兽聚</p>
-        </div>
-        <div class="content-block">
-            <h2 class="content-title">兽聚信息</h2>
-            <div class="events-grid" id="MeetCard1">
-                <div class="event-card">
-                    <div class="event-image">
-                        <img class="event-image-bg" id="FurMeet1CoverBg" src="" alt="" />
-                        <img class="event-image-main" id="FurMeet1Cover" src="" alt="" />
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title" id="FurMeet1Name"></h3>
-                        <p class="event-details" id="FurMeet1Detail"></p>
-                        <div></div>
-                        <div class="event-meta">
-                            <span id="FurMeet1StartDate"></span>
-                            <span id="FurMeet1City"></span>
-
-                            <span class="event-status"><a id="FurMeet1GlobalUrl">了解更多</a></span>
-
+            <!-- 活动列表 -->
+            <section class="content-block" aria-labelledby="meet-list-title">
+                <h2 id="meet-list-title" class="content-title">兽聚信息</h2>
+                <div class="events-grid" id="furmeet-events">
+                    <article class="event-card" id="MeetCard1" aria-live="polite">
+                        <div class="event-image">
+                            <img class="event-image-bg" id="FurMeet1CoverBg" src="" alt="" role="presentation" />
+                            <img class="event-image-main" id="FurMeet1Cover" src="" alt="活动宣传图" />
                         </div>
+                        <div class="event-content">
+                            <h3 class="event-title" id="FurMeet1Name">加载中…</h3>
+                            <p class="event-details" id="FurMeet1Detail"></p>
+                            <div class="event-meta">
+                                <span id="FurMeet1StartDate"></span>
+                                <span id="FurMeet1City"></span>
+                                <span class="event-status">
+                                    <a
+                                        id="FurMeet1GlobalUrl"
+                                        href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >了解更多</a>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event-card" id="MeetCard2" aria-live="polite">
+                        <div class="event-image">
+                            <img class="event-image-bg" id="FurMeet2CoverBg" src="" alt="" role="presentation" />
+                            <img class="event-image-main" id="FurMeet2Cover" src="" alt="活动宣传图" />
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title" id="FurMeet2Name">加载中…</h3>
+                            <p class="event-details" id="FurMeet2Detail"></p>
+                            <div class="event-meta">
+                                <span id="FurMeet2StartDate"></span>
+                                <span id="FurMeet2City"></span>
+                                <span class="event-status">
+                                    <a
+                                        id="FurMeet2GlobalUrl"
+                                        href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >了解更多</a>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event-card" id="MeetCard3" aria-live="polite">
+                        <div class="event-image">
+                            <img class="event-image-bg" id="FurMeet3CoverBg" src="" alt="" role="presentation" />
+                            <img class="event-image-main" id="FurMeet3Cover" src="" alt="活动宣传图" />
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title" id="FurMeet3Name">加载中…</h3>
+                            <p class="event-details" id="FurMeet3Detail"></p>
+                            <div class="event-meta">
+                                <span id="FurMeet3StartDate"></span>
+                                <span id="FurMeet3City"></span>
+                                <span class="event-status">
+                                    <a
+                                        id="FurMeet3GlobalUrl"
+                                        href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >了解更多</a>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event-card" id="MeetCard4" aria-live="polite">
+                        <div class="event-image">
+                            <img class="event-image-bg" id="FurMeet4CoverBg" src="" alt="" role="presentation" />
+                            <img class="event-image-main" id="FurMeet4Cover" src="" alt="活动宣传图" />
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title" id="FurMeet4Name">加载中…</h3>
+                            <p class="event-details" id="FurMeet4Detail"></p>
+                            <div class="event-meta">
+                                <span id="FurMeet4StartDate"></span>
+                                <span id="FurMeet4City"></span>
+                                <span class="event-status">
+                                    <a
+                                        id="FurMeet4GlobalUrl"
+                                        href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >了解更多</a>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event-card" id="MeetCard5" aria-live="polite">
+                        <div class="event-image">
+                            <img class="event-image-bg" id="FurMeet5CoverBg" src="" alt="" role="presentation" />
+                            <img class="event-image-main" id="FurMeet5Cover" src="" alt="活动宣传图" />
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title" id="FurMeet5Name">加载中…</h3>
+                            <p class="event-details" id="FurMeet5Detail"></p>
+                            <div class="event-meta">
+                                <span id="FurMeet5StartDate"></span>
+                                <span id="FurMeet5City"></span>
+                                <span class="event-status">
+                                    <a
+                                        id="FurMeet5GlobalUrl"
+                                        href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >了解更多</a>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event-card" id="MeetCard6" aria-live="polite">
+                        <div class="event-image">
+                            <img class="event-image-bg" id="FurMeet6CoverBg" src="" alt="" role="presentation" />
+                            <img class="event-image-main" id="FurMeet6Cover" src="" alt="活动宣传图" />
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title" id="FurMeet6Name">加载中…</h3>
+                            <p class="event-details" id="FurMeet6Detail"></p>
+                            <div class="event-meta">
+                                <span id="FurMeet6StartDate"></span>
+                                <span id="FurMeet6City"></span>
+                                <span class="event-status">
+                                    <a
+                                        id="FurMeet6GlobalUrl"
+                                        href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >了解更多</a>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="CopyRight" role="contentinfo">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="logo-text">FURS 兽研会</div>
+                    <p>致力于打造中国最具活力的兽迷文化社区，推动原创兽文化发展。</p>
+                    <div class="social-links" aria-label="社交平台链接">
+                        <a href="#" aria-label="前往 QQ"><i class="fab fa-qq"></i></a>
+                        <a href="#" aria-label="前往 哔哩哔哩"><i class="fab fa-bilibili"></i></a>
                     </div>
                 </div>
-
-                <div class="event-card" id="MeetCard2">
-                    <div class="event-image">
-                        <img class="event-image-bg" id="FurMeet2CoverBg" src="" alt="" />
-                        <img class="event-image-main" id="FurMeet2Cover" src="" alt="" />
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>关于我们</h4>
+                        <a href="./about.html" class="footer-link">关于FURS</a>
+                        <a href="./about.html" class="footer-link">团队介绍</a>
+                        <a href="./about.html" class="footer-link">发展历程</a>
+                        <a href="./about.html" class="footer-link">核心价值观</a>
                     </div>
-                    <div class="event-content">
-                        <h3 class="event-title" id="FurMeet2Name"></h3>
-                        <p class="event-details" id="FurMeet2Detail"></p>
-
-                        <div></div>
-                        <div class="event-meta">
-                            <span id="FurMeet2StartDate"></span>
-                            <span id="FurMeet2City"></span>
-                            <span class="event-status"><a id="FurMeet2GlobalUrl">了解更多</a></span>
-                        </div>
+                    <div class="link-group">
+                        <h4>社区资源</h4>
+                        <a href="./comingsoon.html" class="footer-link">二创作品</a>
+                        <a href="./comingsoon.html" class="footer-link">作品展示</a>
+                        <a href="./comingsoon.html" class="footer-link">创作教程</a>
+                        <a href="./comingsoon.html" class="footer-link">素材资源</a>
                     </div>
-                </div>
-
-                <div class="event-card" id="MeetCard3">
-                    <div class="event-image">
-                        <img class="event-image-bg" id="FurMeet3CoverBg" src="" alt="" />
-                        <img class="event-image-main" id="FurMeet3Cover" src="" alt="" />
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title" id="FurMeet3Name"></h3>
-                        <p class="event-details" id="FurMeet3Detail"></p>
-
-                        <div></div>
-                        <div class="event-meta">
-                            <span id="FurMeet3StartDate"></span>
-                            <span id="FurMeet3City"></span>
-                            <span class="event-status"><a id="FurMeet3GlobalUrl">了解更多</a></span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="event-card" id="MeetCard4">
-                    <div class="event-image">
-                        <img class="event-image-bg" id="FurMeet4CoverBg" src="" alt="" />
-                        <img class="event-image-main" id="FurMeet4Cover" src="" alt="" />
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title" id="FurMeet4Name"></h3>
-                        <p class="event-details" id="FurMeet4Detail"></p>
-
-                        <div></div>
-                        <div class="event-meta">
-                            <span id="FurMeet4StartDate"></span>
-                            <span id="FurMeet4City"></span>
-                            <span class="event-status"><a id="FurMeet4GlobalUrl">了解更多</a></span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="event-card" id="MeetCard5">
-                    <div class="event-image">
-                        <img class="event-image-bg" id="FurMeet5CoverBg" src="" alt="" />
-                        <img class="event-image-main" id="FurMeet5Cover" src="" alt="" />
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title" id="FurMeet5Name"></h3>
-                        <p class="event-details" id="FurMeet5Detail"></p>
-
-                        <div></div>
-                        <div class="event-meta">
-                            <span id="FurMeet5StartDate"></span>
-                            <span id="FurMeet5City"></span>
-                            <span class="event-status"><a id="FurMeet5GlobalUrl">了解更多</a></span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="event-card" id="MeetCard6">
-                    <div class="event-image">
-                        <img class="event-image-bg" id="FurMeet6CoverBg" src="" alt="" />
-                        <img class="event-image-main" id="FurMeet6Cover" src="" alt="" />
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title" id="FurMeet6Name"></h3>
-                        <p class="event-details" id="FurMeet6Detail"></p>
-
-                        <div></div>
-                        <div class="event-meta">
-                            <span id="FurMeet6StartDate"></span>
-                            <span id="FurMeet6City"></span>
-                            <span class="event-status"><a id="FurMeet6GlobalUrl">了解更多</a></span>
-                        </div>
+                    <div class="link-group">
+                        <h4>支持帮助</h4>
+                        <a href="./comingsoon.html" class="footer-link">联系我们</a>
+                        <a href="./comingsoon.html" class="footer-link">常见问题</a>
+                        <a href="./comingsoon.html" class="footer-link">技术支持</a>
+                        <a href="./comingsoon.html" class="footer-link">意见反馈</a>
                     </div>
                 </div>
             </div>
-        </div>
+            <p class="CopyRightInfor">&copy; 2025 FURS兽研会. 保留所有权利. | 兽迷文化，创意无限</p>
+        </footer>
 
-    </div>
-
-    <footer class="CopyRight">
-        <div class="footer-content">
-            <div class="footer-info">
-                <div class="logo-text">FURS 兽研会</div>
-                <p>致力于打造中国最具活力的兽迷文化社区，推动原创兽文化发展。</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-qq"></i></a>
-                    <a href="#"><i class="fab fa-bilibili"></i></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <div class="link-group">
-                    <h4>关于我们</h4>
-                    <a href="./about.html" class="footer-link">关于FURS</a>
-                    <a href="./about.html" class="footer-link">团队介绍</a>
-                    <a href="./about.html" class="footer-link">发展历程</a>
-                    <a href="./about.html" class="footer-link">核心价值观</a>
-                </div>
-                <div class="link-group">
-                    <h4>社区资源</h4>
-                    <a href="./comingsoon.html" class="footer-link">二创作品</a>
-                    <a href="./comingsoon.html" class="footer-link">作品展示</a>
-                    <a href="./comingsoon.html" class="footer-link">创作教程</a>
-                    <a href="./comingsoon.html" class="footer-link">素材资源</a>
-                </div>
-                <div class="link-group">
-                    <h4>支持帮助</h4>
-                    <a href="./comingsoon.html" class="footer-link">联系我们</a>
-                    <a href="./comingsoon.html" class="footer-link">常见问题</a>
-                    <a href="./comingsoon.html" class="footer-link">技术支持</a>
-                    <a href="./comingsoon.html" class="footer-link">意见反馈</a>
-                </div>
-            </div>
-        </div>
-        <p class="CopyRightInfor">&copy; 2025 FURS兽研会. 保留所有权利. | 兽迷文化，创意无限</p>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.min.js"></script>
-    <script src="../scripts/main.js"></script>
-    <script src="../scripts/FurMeetAPI_new.js"></script>
-    <script src="../scripts/theme-switch.js"></script>
-
-</body>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.min.js" defer></script>
+        <script src="../scripts/main.js" defer></script>
+        <script src="../scripts/FurMeetAPI_new.js" defer></script>
+        <script src="../scripts/theme-switch.js" defer></script>
+    </body>
 </html>

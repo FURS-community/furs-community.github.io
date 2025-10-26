@@ -1,35 +1,40 @@
 class ThemeSwitcher {
     constructor() {
+        this.STORAGE_KEY = 'furs-theme';
+        this.STYLE_ID = 'furs-theme-switcher-style';
         this.injectStyles();
-        this.init();
-        this.handleClickOutside();
+        this.render();
+        this.bindEvents();
+        this.applyTheme(this.getInitialTheme());
     }
 
     injectStyles() {
-        const style = document.createElement("style");
+        if (document.getElementById(this.STYLE_ID)) return;
+        const style = document.createElement('style');
+        style.id = this.STYLE_ID;
         style.textContent = `
-            :root {
-                --bg-color: #ffffff;
-                --text-color: #000000;
-            }
-
-            body {
-                background: var(--bg-color);
-                color: var(--text-color);
-                transition: background 0.3s, color 0.3s;
-            }
-
             .theme-switcher {
                 position: fixed;
-                top: 10px;
-                right: 10px;
-                font-size: 18px; 
-                z-index: 1000;
+                top: 16px;
+                right: 16px;
+                z-index: 1200;
+                font-size: 18px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 8px;
             }
 
             .theme-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
                 cursor: pointer;
-                padding: 4px;
                 user-select: none;
             }
 
@@ -37,16 +42,13 @@ class ThemeSwitcher {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 100%;
+                top: 110%;
                 right: 0;
-                margin-top: 5px;
-                background: var(--bg-color);
-                border: 1px solid #ccc;
-                border-radius: 6px;
+                background: rgba(255, 255, 255, 0.96);
+                border-radius: 10px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
                 overflow: hidden;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-                min-width: 120px; 
-                font-size: 14px; 
+                min-width: 160px;
             }
 
             .theme-menu.show {
@@ -54,69 +56,117 @@ class ThemeSwitcher {
             }
 
             .theme-option {
-                padding: 8px 12px; 
-                cursor: pointer;
-                transition: background 0.2s;
+                padding: 10px 16px;
+                background: none;
+                border: none;
                 text-align: left;
+                font: inherit;
+                color: inherit;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: background 0.2s ease;
             }
 
-            .theme-option:hover {
-                background: rgba(0,0,0,0.1);
+            .theme-option:hover,
+            .theme-option:focus-visible {
+                background: rgba(0, 0, 0, 0.07);
+            }
+
+            body[data-theme='dark'] .theme-switcher .theme-icon {
+                background: rgba(32, 25, 20, 0.92);
+                color: #f4ede6;
+            }
+
+            body[data-theme='dark'] .theme-switcher .theme-menu {
+                background: rgba(32, 25, 20, 0.95);
+                color: #f4ede6;
+            }
+
+            body[data-theme='dark'] .theme-switcher .theme-option:hover,
+            body[data-theme='dark'] .theme-switcher .theme-option:focus-visible {
+                background: rgba(255, 255, 255, 0.08);
             }
         `;
         document.head.appendChild(style);
     }
 
-    init() {
-        const container = document.createElement("div");
-        container.className = "theme-switcher";
+    render() {
+        const container = document.createElement('div');
+        container.className = 'theme-switcher';
         container.innerHTML = `
-            <div class="theme-icon">⚪</div>
-            <div class="theme-menu">
-                <div class="theme-option" data-theme="light">🌞 日间模式</div>
-                <div class="theme-option" data-theme="dark">🌙 夜间模式</div>
+            <button class="theme-icon" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="theme-switcher-menu" title="切换主题">🌞</button>
+            <div class="theme-menu" id="theme-switcher-menu" role="menu">
+                <button class="theme-option" type="button" data-theme="light" role="menuitemradio" aria-checked="false">🌞 日间模式</button>
+                <button class="theme-option" type="button" data-theme="dark" role="menuitemradio" aria-checked="false">🌙 夜间模式</button>
             </div>
         `;
         document.body.appendChild(container);
 
-        this.icon = container.querySelector(".theme-icon");
-        this.menu = container.querySelector(".theme-menu");
-        const options = container.querySelectorAll(".theme-option");
+        this.container = container;
+        this.icon = container.querySelector('.theme-icon');
+        this.menu = container.querySelector('.theme-menu');
+        this.options = Array.from(container.querySelectorAll('.theme-option'));
+    }
 
-        this.icon.addEventListener("click", () => this.menu.classList.toggle("show"));
+    bindEvents() {
+        if (!this.icon || !this.menu) return;
 
-        options.forEach(opt => {
-            opt.addEventListener("click", () => {
-                this.setTheme(opt.dataset.theme);
-                this.menu.classList.remove("show");
-                localStorage.setItem("theme", opt.dataset.theme);
+        this.icon.addEventListener('click', () => {
+            const isOpen = this.menu.classList.toggle('show');
+            this.icon.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        this.options.forEach((option) => {
+            option.addEventListener('click', () => {
+                this.applyTheme(option.dataset.theme);
+                this.closeMenu();
             });
         });
 
-        const savedTheme = localStorage.getItem("theme") || "light";
-        this.setTheme(savedTheme);
-    }
-
-    setTheme(theme) {
-        if (theme === "dark") {
-            document.documentElement.style.setProperty("--bg-color", "#1e1e1e");
-            document.documentElement.style.setProperty("--text-color", "#f1f1f1");
-            this.icon.textContent = "🌙";
-        } else {
-            document.documentElement.style.setProperty("--bg-color", "#ffffff");
-            document.documentElement.style.setProperty("--text-color", "#000000");
-            this.icon.textContent = "🌞";
-        }
-        document.body.setAttribute("data-theme", theme);
-    }
-
-    handleClickOutside() {
-        document.addEventListener("click", (e) => {
-            if (!e.target.closest(".theme-switcher")) {
-                this.menu.classList.remove("show");
+        document.addEventListener('click', (event) => {
+            if (!this.container.contains(event.target)) {
+                this.closeMenu();
             }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                this.closeMenu();
+            }
+        });
+    }
+
+    closeMenu() {
+        if (!this.menu || !this.icon) return;
+        this.menu.classList.remove('show');
+        this.icon.setAttribute('aria-expanded', 'false');
+    }
+
+    getInitialTheme() {
+        const storedTheme = localStorage.getItem(this.STORAGE_KEY);
+        if (storedTheme) {
+            return storedTheme;
+        }
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    applyTheme(theme) {
+        const resolvedTheme = theme === 'dark' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
+        document.body.setAttribute('data-theme', resolvedTheme);
+        localStorage.setItem(this.STORAGE_KEY, resolvedTheme);
+
+        if (this.icon) {
+            this.icon.textContent = resolvedTheme === 'dark' ? '🌙' : '🌞';
+        }
+
+        this.options?.forEach((option) => {
+            const isSelected = option.dataset.theme === resolvedTheme;
+            option.setAttribute('aria-checked', String(isSelected));
         });
     }
 }
 
-window.addEventListener("DOMContentLoaded", () => new ThemeSwitcher());
+window.addEventListener('DOMContentLoaded', () => new ThemeSwitcher());
